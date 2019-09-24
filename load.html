@@ -6,14 +6,14 @@
     let indeks = klass.indexOf("-")+1;
     let goinup = parseInt(document.getElementById("butn").value);
     let numberr = parseInt(klass.slice(indeks));
-    while(numberr >= 100){
+    let ads = numberr + goinup
+    while(ads >= 100){
       goinup += 1;
       document.getElementById("butn").value = goinup.toString();
-      numberr -= 100
-    }
-    let ads = numberr + goinup
+      ads -= 100
+    } 
     let splitt = klass.split("-");
-    splitt[1] = numberr.toString();
+    splitt[1] = ads.toString();
     document.getElementById("bar1").className = splitt.join("-");
   }
 </script>
