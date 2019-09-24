@@ -4,7 +4,14 @@
   function a(){
     let klass = document.getElementById("bar1").className;
     let indeks = klass.indexOf("-")+1;
-    let numberr = parseInt(klass.slice(indeks)) + 1;
+    let goinup = parseInt(document.getElementById("butn").value);
+    let numberr = parseInt(klass.slice(indeks));
+    while(numberr >= 100){
+      goinup += 1;
+      document.getElementById("butn").value = goinup.toString();
+      numberr -= 100
+    }
+    let ads = numberr + goinup
     let splitt = klass.split("-");
     splitt[1] = numberr.toString();
     document.getElementById("bar1").className = splitt.join("-");
@@ -31,5 +38,5 @@
       </div>
 </div>
   <div>
-  <input class="btn btn-primary" type="button" onclick="a()" value="1"></input></div></div>
+  <input class="btn btn-primary" type="button" onclick="a()" value="1" id="butn"></input></div></div>
 </body>
