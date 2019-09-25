@@ -1,6 +1,24 @@
 <link rel="stylesheet" type="text/css" href="bar.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script>
+  function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+  document.onload()=function(){
+    document.getElementById("butn").value=parse(getCookie("point"))
+  }
   function a(){
     let klass = document.getElementById("bar1").className;
     let indeks = klass.indexOf("-")+1;
@@ -13,6 +31,7 @@
       ads -= 100
     } 
     let splitt = klass.split("-");
+    document.cookie = "point=" + ads.toString();
     splitt[1] = ads.toString();
     document.getElementById("bar1").className = splitt.join("-");
   }
